@@ -6,6 +6,7 @@
 #define STORAGE_FILE_H
 
 #include <string>
+#include "String/String.h";
 
 namespace Tigre {
     class FileException : public std::exception {
@@ -51,8 +52,8 @@ namespace Tigre {
 
     class File {
         public:
-            static bool Exists(std::string path);
-            static bool IsFolder(std::string path);
+            static bool Exists(Tigre::String path);
+            static bool IsFolder(Tigre::String path);
 
     };
 };
