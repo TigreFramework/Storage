@@ -7,7 +7,7 @@
 
 
 bool Tigre::File::Exists(Tigre::String path) {
-    if (FILE *file = fopen(path..getValue().c_str(), "r")) {
+    if (FILE *file = fopen(path.getValue().c_str(), "r")) {
         fclose(file);
         return true;
     }
@@ -16,7 +16,7 @@ bool Tigre::File::Exists(Tigre::String path) {
 
 bool Tigre::File::IsFolder(Tigre::String path) {
     struct stat s;
-    if( stat(path.c_str(),&s) == 0 ) {
+    if( stat(path.getValue().c_str(),&s) == 0 ) {
         if( s.st_mode & S_IFDIR ) {
             return true;
         } else if( s.st_mode & S_IFREG ) {

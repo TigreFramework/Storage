@@ -6,7 +6,7 @@
 #define STORAGE_FILE_H
 
 #include <string>
-#include "String/String.h";
+#include "String/String.h"
 
 namespace Tigre {
     class FileException : public std::exception {
