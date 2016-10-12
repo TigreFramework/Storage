@@ -52,8 +52,16 @@ namespace Tigre {
 
     class File {
         public:
+            File(Tigre::String path);
+            ~File();
+
+            String getFileContent();
+
             static bool Exists(Tigre::String path);
             static bool IsFolder(Tigre::String path);
+
+        private:
+            Tigre::String path;
 
     };
 };

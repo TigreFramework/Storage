@@ -4,7 +4,35 @@
 
 #include "File.h"
 #include <sys/stat.h>
+#include <fstream>
 
+Tigre::File::File(Tigre::String path) {
+    this->path = path;
+}
+
+Tigre::File::~File() {
+
+}
+
+Tigre::String Tigre::File::getFileContent() {
+    if(Tigre::File::Exists(this->path) && !Tigre::File::IsFolder(this->path)) {
+        std::string getdata = "";
+
+        int cont = 0;
+
+        std::fstream data;
+
+        data.open(this->path.getValue().c_str(), std::ios::in);
+
+        Tigre::String output = "";
+
+        while (!data.eof()) {
+            getline(data, getdata);
+            output += getdata;
+        }
+        return output;
+    }
+}
 
 bool Tigre::File::Exists(Tigre::String path) {
     if (FILE *file = fopen(path.getValue().c_str(), "r")) {
